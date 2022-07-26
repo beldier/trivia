@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.triviagame.viewmodel.GameViewModel" />
+
+        <variable
+            name="question"
+            type="com.example.triviagame.data.Question" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{question.questionString}"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="15dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ ()-> viewModel.answerClicked(question.answerList.get(0).answerString)}"
+                android:text="@{question.answerList.get(0).answerString}"
+                tools:text="Java"/>
+
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ ()-> viewModel.answerClicked(question.answerList.get(1).answerString)}"
+                android:text="@{question.answerList.get(1).answerString}" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ ()-> viewModel.answerClicked(question.answerList.get(2).answerString)}"
+                android:text="@{question.answerList.get(2).answerString}" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ ()-> viewModel.answerClicked(question.answerList.get(3).answerString)}"
+                android:text="@{question.answerList.get(3).answerString}" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ ()-> viewModel.answerClicked(question.answerList.get(4).answerString)}"
+                android:text="@{question.answerList.get(4).answerString}" />
+<!--                        <include-->
+<!--                            layout="@layout/answer"-->
+<!--                            android:layout_widh="wrap_content"-->
+<!--                            android:layout_heightt="wrap_content"-->
+<!--                            android:layout_gravity="left"-->
+<!--                            android:onClick="@{question.answerClicked(question.answerList.get(1))}"-->
+<!--                            app:answerText="@{question.answerList.get(1).answerString}" />-->
+
+<!--                        <include-->
+<!--                            layout="@layout/answer"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="left"-->
+<!--                            android:onClick="@{question.answerClicked(question.answerList.get(2))}"-->
+<!--                            app:answerText="@{question.answerList.get(2).answerString}" />-->
+
+        </RadioGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Next" />
+    </LinearLayout>
+</layout>
